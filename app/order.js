@@ -1,11 +1,16 @@
 import { View, Text } from "react-native";
-import React from "react";
+
+import Layout from "../compontents/Layout";
 
 const Order = () => {
   return (
-    <View>
-      <Text>Order</Text>
-    </View>
+    <Layout
+      children={
+        <View className="flex-1">
+          <Text className="text-white text-2xl">Order</Text>
+        </View>
+      }
+    />
   );
 };
 
