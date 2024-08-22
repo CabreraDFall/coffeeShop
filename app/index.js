@@ -6,6 +6,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { theme } from "../theme";
 import SearchBar from "../compontents/SearchBar";
 import TagCategory from "../compontents/TagCategory";
+import CardsGrid from "../compontents/CardsGrid";
 export default function index() {
   const userName = "Fedrerick";
 
@@ -25,6 +26,9 @@ export default function index() {
             </View>
             <View>
               <TagCategory />
+            </View>
+            <View>
+              <CardsGrid />
             </View>
           </View>
         }
