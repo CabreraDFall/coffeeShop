@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { theme } from "../theme";
 
@@ -7,11 +7,13 @@ const ShoppingIconWithBadge = () => {
   const badgeCount = 1;
   return (
     <View style={styles.iconContainer}>
-      <MaterialIcons
-        name="shopping-bag"
-        size={theme.sizeIcons.extraLarge} // Puedes usar theme.sizeIcons.extraLarge si lo tienes definido
-        color={theme.whiteBase} // Puedes usar theme.whiteBase si lo tienes definido
-      />
+      <TouchableOpacity>
+        <MaterialIcons
+          name="shopping-bag"
+          size={theme.sizeIcons.extraLarge} // Puedes usar theme.sizeIcons.extraLarge si lo tienes definido
+          color={theme.whiteBase} // Puedes usar theme.whiteBase si lo tienes definido
+        />
+      </TouchableOpacity>
       {badgeCount > 0 && (
         <View style={styles.badgeContainer}>
           <Text style={styles.badgeText}>{badgeCount}</Text>
