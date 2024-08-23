@@ -2,8 +2,8 @@ import { View, Text, FlatList, ScrollView } from "react-native";
 import React from "react";
 import Card from "./Card";
 
-const CardsGrid = () => {
-  const getGrid = [1, 2, 3, 4, 5, 6, 7];
+const CardsGrid = ({ paddingBottom }) => {
+  const getGrid = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <FlatList
@@ -15,7 +15,7 @@ const CardsGrid = () => {
           <Card />
         </View>
       )}
-      contentContainerStyle={{ paddingBottom: 125 }}
+      contentContainerStyle={{ paddingBottom: paddingBottom }}
       showsVerticalScrollIndicator={false} // Oculta la barra de scroll vertical
       showsHorizontalScrollIndicator={false}
     />

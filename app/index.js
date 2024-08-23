@@ -1,9 +1,7 @@
 import { Text, View } from "react-native";
 import Layout from "../compontents/Layout";
 
-import ShoppingIcon from "../compontents/ShoppingIcon";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { theme } from "../theme";
+import ShoppingIconWithBadge from "../compontents/ShoppingIcon";
 import SearchBar from "../compontents/SearchBar";
 import TagCategory from "../compontents/TagCategory";
 import CardsGrid from "../compontents/CardsGrid";
@@ -19,7 +17,7 @@ export default function index() {
               <Text className="text-white text-lg font-light">
                 Hola, <Text className="font-medium">{userName}</Text>
               </Text>
-              <ShoppingIcon />
+              <ShoppingIconWithBadge />
             </View>
             <View className="py-5">
               <SearchBar />
@@ -28,7 +26,7 @@ export default function index() {
               <TagCategory />
             </View>
             <View>
-              <CardsGrid />
+              <CardsGrid paddingBottom={350} />
             </View>
           </View>
         }
