@@ -1,8 +1,9 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { theme } from "../theme";
 import { LinearGradient } from "expo-linear-gradient";
+import Entypo from "@expo/vector-icons/Entypo";
 
 const Card = () => {
   return (
@@ -13,22 +14,34 @@ const Card = () => {
       style={styles.gradientBorder}
     >
       <View className="bg-[#222325] w-[150px]  flex rounded-lg">
-        <View className="flex w-full flex-row justify-end py-1">
+        <View style={styles.favoriteIcon}>
           <AntDesign
             name="heart"
             size={theme.sizeIcons.medium}
             color={theme.whiteBase}
           />
         </View>
-        <Image source={require("../assets/image-coffee1.png")} />
-        <Text className="w-3/4 text-white font-medium">Espreso sa sojinim</Text>
-        <View className="flex flex-row justify-between">
-          <Text className="text-white">Price</Text>
-          <AntDesign
-            name="heart"
-            size={theme.sizeIcons.medium}
-            color={theme.whiteBase}
+        <TouchableOpacity className="flex items-center">
+          <Image
+            source={require("../assets/image-coffee1.png")}
+            className="justify-center flex"
           />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text className="w-3/4 text-white font-medium px-5 pt-4">
+            Espreso sa sojinim
+          </Text>
+        </TouchableOpacity>
+        <View className="flex flex-row justify-between pt-2 pl-5">
+          <Text className="text-white text-sm">$2.20</Text>
+          <TouchableOpacity>
+            <Entypo
+              name="plus"
+              size={theme.sizeIcons.large}
+              color={theme.whiteBase}
+              style={styles.plusIcon}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </LinearGradient>
@@ -39,6 +52,20 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 0.5,
     alignSelf: "center", // Center the gradient border
+  },
+
+  favoriteIcon: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    padding: 10,
+  },
+
+  plusIcon: {
+    backgroundColor: theme.orangeBase,
+    padding: 2,
+    borderTopLeftRadius: 8, // Esquina superior izquierda redondeada
+    borderBottomRightRadius: 8, // Esquina inferior derecha redondeada
   },
 });
 

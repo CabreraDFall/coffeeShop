@@ -8,7 +8,7 @@ export const theme = {
     small: 8,
     medium: 16,
     large: 24,
-    extraLarge: 31,
+    extraLarge: 26,
   },
 };
 export const stylesTheme = {
