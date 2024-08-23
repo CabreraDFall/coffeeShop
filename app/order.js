@@ -3,6 +3,15 @@ import { View, Text } from "react-native";
 import Layout from "../compontents/Layout";
 import ShoppingIconWithBadge from "../compontents/ShoppingIcon";
 import OrderGrid from "../compontents/OrderGrid";
+import TagCategory from "../compontents/TagCategory";
+
+const TagOrderItem = [
+  { id: "1", name: "Todas" },
+  { id: "2", name: "Pendiente" },
+  { id: "3", name: "Cancelado" },
+  { id: "4", name: "Entregado" },
+  { id: "5", name: "En Progreso" },
+];
 
 const Order = () => {
   return (
@@ -16,8 +25,11 @@ const Order = () => {
               </Text>
               <ShoppingIconWithBadge />
             </View>
+            <View className="pt-2">
+              <TagCategory data={TagOrderItem} />
+            </View>
 
-            <OrderGrid paddingBottom={120} />
+            <OrderGrid paddingBottom={150} />
           </View>
         }
       />

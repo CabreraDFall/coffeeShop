@@ -40,6 +40,14 @@ const TabBar = ({ state, descriptors, navigation }) => {
         {...props}
       />
     ),
+    item: (props) => (
+      <FontAwesome6
+        name="user-large"
+        size={theme.sizeIcons.extraLarge}
+        color={theme.whiteBase}
+        {...props}
+      />
+    ),
   };
 
   return (
@@ -58,7 +66,8 @@ const TabBar = ({ state, descriptors, navigation }) => {
             ? options.title
             : route.name;
 
-        if (["_sitemap", "+not-found"].includes(route.name)) return null;
+        if (["_sitemap", "+not-found", "item"].includes(route.name))
+          return null;
 
         const isFocused = state.index === index;
 

@@ -8,18 +8,8 @@ import {
 import React, { useState } from "react";
 import { theme } from "../theme";
 
-const TagCategory = () => {
+const TagCategory = ({ data }) => {
   const [selectedItem, setSelectedItem] = useState(null);
-
-  const TagCategoryItem = [
-    { id: "1", name: "Todas" },
-    { id: "2", name: "Café Expresso" },
-    { id: "3", name: "Café Fuktrado" },
-    { id: "4", name: "Café frío" },
-    { id: "5", name: "Café helado" },
-    { id: "6", name: "Café de filtro" },
-    { id: "7", name: "Café americano" },
-  ];
 
   const handlePress = (item) => {
     setSelectedItem(item.id);
@@ -27,8 +17,10 @@ const TagCategory = () => {
 
   return (
     <FlatList
+      showsVerticalScrollIndicator={false} // Oculta la barra de scroll vertical
+      showsHorizontalScrollIndicator={false}
       horizontal
-      data={TagCategoryItem}
+      data={data}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <TouchableOpacity
@@ -56,6 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    marginBottom: 8,
   },
   text: {
     color: theme.whiteBase,

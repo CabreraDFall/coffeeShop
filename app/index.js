@@ -5,6 +5,17 @@ import ShoppingIconWithBadge from "../compontents/ShoppingIcon";
 import SearchBar from "../compontents/SearchBar";
 import TagCategory from "../compontents/TagCategory";
 import CardsGrid from "../compontents/CardsGrid";
+
+const TagCategoryItem = [
+  { id: "1", name: "Todas" },
+  { id: "2", name: "Café Expresso" },
+  { id: "3", name: "Café Fuktrado" },
+  { id: "4", name: "Café frío" },
+  { id: "5", name: "Café helado" },
+  { id: "6", name: "Café de filtro" },
+  { id: "7", name: "Café americano" },
+];
+
 export default function index() {
   const userName = "Fedrerick";
 
@@ -22,8 +33,9 @@ export default function index() {
             <View className="py-5">
               <SearchBar />
             </View>
+
             <View>
-              <TagCategory />
+              <TagCategory data={TagCategoryItem} />
             </View>
             <View>
               <CardsGrid paddingBottom={350} />

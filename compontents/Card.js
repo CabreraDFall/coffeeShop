@@ -1,9 +1,17 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import React from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { theme } from "../theme";
 import { LinearGradient } from "expo-linear-gradient";
 import Entypo from "@expo/vector-icons/Entypo";
+import { Link } from "expo-router";
 
 const Card = () => {
   return (
@@ -22,10 +30,14 @@ const Card = () => {
           />
         </View>
         <TouchableOpacity className="flex items-center">
-          <Image
-            source={require("../assets/image-coffee1.png")}
-            className="justify-center flex"
-          />
+          <Link href={"/item"}>
+            <View>
+              <Image
+                source={require("../assets/image-coffee1.png")}
+                className="justify-center flex"
+              />
+            </View>
+          </Link>
         </TouchableOpacity>
         <TouchableOpacity>
           <Text className="w-3/4 text-white font-medium px-5 pt-4">

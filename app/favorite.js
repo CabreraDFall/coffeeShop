@@ -5,6 +5,17 @@ import Layout from "../compontents/Layout";
 import { StatusBar } from "expo-status-bar";
 import ShoppingIconWithBadge from "../compontents/ShoppingIcon";
 import CardsGrid from "../compontents/CardsGrid";
+import TagCategory from "../compontents/TagCategory";
+
+const TagFavoriteItem = [
+  { id: "1", name: "Todas" },
+  { id: "2", name: "Café Expresso" },
+  { id: "3", name: "Café Fuktrado" },
+  { id: "4", name: "Café frío" },
+  { id: "5", name: "Café helado" },
+  { id: "6", name: "Café de filtro" },
+  { id: "7", name: "Café americano" },
+];
 
 const Favorite = () => {
   return (
@@ -18,7 +29,10 @@ const Favorite = () => {
               </Text>
               <ShoppingIconWithBadge />
             </View>
-            <CardsGrid paddingBottom={120} />
+            <View className="pt-2">
+              <TagCategory data={TagFavoriteItem} />
+            </View>
+            <CardsGrid paddingBottom={150} />
           </View>
         }
       />
