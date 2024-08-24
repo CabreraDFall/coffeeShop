@@ -31,7 +31,7 @@ const Card = ({ item, onFavoriteToggle }) => {
           <AntDesign
             name="heart"
             size={theme.sizeIcons.medium}
-            color={favoriteLike ? theme.orangeBase : theme.whiteBase}
+            color={item.isFavorite ? theme.orangeBase : theme.whiteBase}
           />
         </TouchableOpacity>
         <TouchableOpacity className="flex items-center">
