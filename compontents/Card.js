@@ -13,7 +13,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Link } from "expo-router";
 
-const Card = () => {
+const Card = ({ item }) => {
   return (
     <LinearGradient
       colors={["rgba(255,255,255,0)", "rgba(255,255,255,0.1)"]}
@@ -21,7 +21,7 @@ const Card = () => {
       end={{ x: 1, y: 1 }}
       style={styles.gradientBorder}
     >
-      <View className="bg-[#222325] w-[150px]  flex rounded-lg">
+      <View className="bg-[#222325] w-[150px] min-h-[150px] flex rounded-lg">
         <View style={styles.favoriteIcon}>
           <AntDesign
             name="heart"
@@ -40,12 +40,12 @@ const Card = () => {
           </Link>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text className="w-3/4 text-white font-medium px-5 pt-4">
-            Espreso sa sojinim
+          <Text className="w-[80%] text-white font-medium min-h-[50px] px-5 pt-4">
+            {item.name}
           </Text>
         </TouchableOpacity>
         <View className="flex flex-row justify-between pt-2 pl-5">
-          <Text className="text-white text-sm">$2.20</Text>
+          <Text className="text-white text-sm">${item.price}</Text>
           <TouchableOpacity>
             <Entypo
               name="plus"

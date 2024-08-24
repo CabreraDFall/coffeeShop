@@ -2,17 +2,15 @@ import { View, Text, FlatList, ScrollView } from "react-native";
 import React from "react";
 import Card from "./Card";
 
-const CardsGrid = ({ paddingBottom }) => {
-  const getGrid = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+const CardsGrid = ({ data, paddingBottom }) => {
   return (
     <FlatList
-      data={getGrid}
+      data={data}
       numColumns={2}
       keyExtractor={(item, index) => index.toString()}
       renderItem={({ item }) => (
         <View className="w-1/2 p-4">
-          <Card />
+          <Card item={item} />
         </View>
       )}
       contentContainerStyle={{ paddingBottom: paddingBottom }}

@@ -5,19 +5,23 @@ import ShoppingIconWithBadge from "../compontents/ShoppingIcon";
 import SearchBar from "../compontents/SearchBar";
 import TagCategory from "../compontents/TagCategory";
 import CardsGrid from "../compontents/CardsGrid";
+import { coffeeMenu, person } from "../api/fakeData";
+import { useState } from "react";
 
-const TagCategoryItem = [
-  { id: "1", name: "Todas" },
-  { id: "2", name: "Café Expresso" },
-  { id: "3", name: "Café Fuktrado" },
-  { id: "4", name: "Café frío" },
-  { id: "5", name: "Café helado" },
-  { id: "6", name: "Café de filtro" },
-  { id: "7", name: "Café americano" },
-];
+const categories = ["All", ...new Set(coffeeMenu.map((item) => item.category))];
 
 export default function index() {
-  const userName = "Fedrerick";
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [filteredData, setFilteredData] = useState(coffeeMenu || []); // Asegúrate de que coffeeMenu tenga un valor inicial
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    if (category === "all") {
+      setFilteredData(coffeeMenu); // Muestra todos los elementos
+    } else {
+      setFilteredData(coffeeMenu.filter((item) => item.category === category)); // Filtra por categoría
+    }
+  };
 
   return (
     <>
@@ -26,7 +30,7 @@ export default function index() {
           <View className="px-5 mt-8">
             <View className="flex-row justify-between align-middle">
               <Text className="text-white text-lg font-light">
-                Hola, <Text className="font-medium">{userName}</Text>
+                Hola, <Text className="font-medium">{person.firstName}</Text>
               </Text>
               <ShoppingIconWithBadge />
             </View>
@@ -35,10 +39,13 @@ export default function index() {
             </View>
 
             <View>
-              <TagCategory data={TagCategoryItem} />
+              <TagCategory
+                data={categories}
+                onCategoryChange={handleCategoryChange}
+              />
             </View>
             <View>
-              <CardsGrid paddingBottom={350} />
+              <CardsGrid data={filteredData} paddingBottom={350} />
             </View>
           </View>
         }

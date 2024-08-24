@@ -8,11 +8,15 @@ import {
 import React, { useState } from "react";
 import { theme } from "../theme";
 
-const TagCategory = ({ data }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
+const TagCategory = ({ data, onCategoryChange }) => {
+  const [selectedItem, setSelectedItem] = useState("All");
+  // const [filteredData, setFilteredData] = useState(allData);
 
   const handlePress = (item) => {
-    setSelectedItem(item.id);
+    onCategoryChange(item);
+    setSelectedItem(item);
+
+    // Filtrar los datos según la categoría seleccionada
   };
 
   return (
@@ -21,21 +25,18 @@ const TagCategory = ({ data }) => {
       showsHorizontalScrollIndicator={false}
       horizontal
       data={data}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item) => item}
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() => handlePress(item)}
           style={styles.itemContainer}
         >
           <Text
-            style={[
-              styles.text,
-              item.id === selectedItem && styles.selectedText,
-            ]}
+            style={[styles.text, item === selectedItem && styles.selectedText]}
           >
-            {item.name}
+            {item}
           </Text>
-          {item.id === selectedItem && <View style={styles.underline} />}
+          {item === selectedItem && <View style={styles.underline} />}
         </TouchableOpacity>
       )}
     />
