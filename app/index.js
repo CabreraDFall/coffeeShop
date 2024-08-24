@@ -10,26 +10,26 @@ import { useEffect, useState } from "react";
 
 import { fetchCoffeeMenu } from "../services/coffeeMenu";
 
-const categories = ["All", ...new Set(coffeeMenu.map((item) => item.category))];
-
 export default function index() {
   useEffect(() => {
     const getCoffeeMenu = async () => {
       try {
         const menu = await fetchCoffeeMenu();
-        console.log("Menú de café:", menu);
+        setCoffeeMenu(menu); // Actualiza el menú de café
+        setCategories(["All", ...new Set(menu.map((item) => item.category))]); // Actualiza las categorías
+        setFilteredData(menu); // Muestra todos los elementos al cargar
       } catch (error) {
         console.error("No se pudo obtener el menú de café:", error);
       }
     };
 
-    getCoffeeMenu();
+    getCoffeeMenu(); // Llama a la función para obtener los datos
   }, []);
 
-  console.log(fetchCoffeeMenu);
-
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [filteredData, setFilteredData] = useState(coffeeMenu || []); // Asegúrate de que coffeeMenu tenga un valor inicial
+  const [coffeeMenu, setCoffeeMenu] = useState([]);
+  const [categories, setCategories] = useState(["All"]);
+  const [filteredData, setFilteredData] = useState([]);
+  // Asegúrate de que coffeeMenu tenga un valor inicial
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
