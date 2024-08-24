@@ -29,6 +29,7 @@ export default function index() {
   const [coffeeMenu, setCoffeeMenu] = useState([]);
   const [categories, setCategories] = useState(["All"]);
   const [filteredData, setFilteredData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(["All"]);
   // Asegúrate de que coffeeMenu tenga un valor inicial
 
   const handleCategoryChange = (category) => {

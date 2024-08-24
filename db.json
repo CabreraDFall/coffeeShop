@@ -42,7 +42,7 @@
       "photo": "mocha.jpg",
       "special": true,
       "tag": "Chocolatey",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "5",
@@ -86,7 +86,7 @@
       "photo": "affogato.jpg",
       "special": true,
       "tag": "Indulgent",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "9",
@@ -97,7 +97,7 @@
       "photo": "cold_brew.jpg",
       "special": false,
       "tag": "Refreshing",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "10",
