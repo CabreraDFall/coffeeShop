@@ -8,6 +8,7 @@ export const coffeeMenu = [
     photo: "espresso.jpg",
     special: false,
     tag: "Strong",
+    isFavorite: true,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const coffeeMenu = [
     photo: "cappuccino.jpg",
     special: true,
     tag: "Creamy",
+    isFavorite: false,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ export const coffeeMenu = [
     photo: "latte.jpg",
     special: false,
     tag: "Smooth",
+    isFavorite: false,
   },
   {
     id: 4,
@@ -39,6 +42,7 @@ export const coffeeMenu = [
     photo: "mocha.jpg",
     special: true,
     tag: "Chocolatey",
+    isFavorite: false,
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ export const coffeeMenu = [
     photo: "macchiato.jpg",
     special: false,
     tag: "Bold",
+    isFavorite: false,
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ export const coffeeMenu = [
     description: "A smooth espresso with a velvety microfoam.",
     photo: "flat_white.jpg",
     special: true,
+    isFavorite: false,
     tag: "Velvety",
   },
   {
@@ -69,6 +75,7 @@ export const coffeeMenu = [
     photo: "americano.jpg",
     special: false,
     tag: "Mild",
+    isFavorite: false,
   },
   {
     id: 8,
@@ -80,6 +87,7 @@ export const coffeeMenu = [
     photo: "affogato.jpg",
     special: true,
     tag: "Indulgent",
+    isFavorite: false,
   },
   {
     id: 9,
@@ -90,6 +98,7 @@ export const coffeeMenu = [
     photo: "cold_brew.jpg",
     special: false,
     tag: "Refreshing",
+    isFavorite: false,
   },
   {
     id: 10,
@@ -100,6 +109,7 @@ export const coffeeMenu = [
     photo: "nitro_cold_brew.jpg",
     special: true,
     tag: "Creamy",
+    isFavorite: false,
   },
   {
     id: 11,
@@ -110,6 +120,7 @@ export const coffeeMenu = [
     photo: "iced_latte.jpg",
     special: false,
     tag: "Chilled",
+    isFavorite: false,
   },
   {
     id: 12,
@@ -120,6 +131,7 @@ export const coffeeMenu = [
     photo: "iced_americano.jpg",
     special: false,
     tag: "Light",
+    isFavorite: false,
   },
   {
     id: 13,
@@ -130,6 +142,7 @@ export const coffeeMenu = [
     photo: "iced_mocha.jpg",
     special: true,
     tag: "Decadent",
+    isFavorite: false,
   },
   {
     id: 14,
@@ -140,6 +153,7 @@ export const coffeeMenu = [
     photo: "caramel_macchiato.jpg",
     special: true,
     tag: "Sweet",
+    isFavorite: false,
   },
   {
     id: 15,
@@ -150,6 +164,7 @@ export const coffeeMenu = [
     photo: "cafe_au_lait.jpg",
     special: false,
     tag: "Classic",
+    isFavorite: false,
   },
   {
     id: 16,
@@ -160,6 +175,7 @@ export const coffeeMenu = [
     photo: "irish_coffee.jpg",
     special: true,
     tag: "Rich",
+    isFavorite: false,
   },
   {
     id: 17,
@@ -171,6 +187,7 @@ export const coffeeMenu = [
     photo: "cortado.jpg",
     special: false,
     tag: "Balanced",
+    isFavorite: false,
   },
   {
     id: 18,
@@ -182,6 +199,7 @@ export const coffeeMenu = [
     photo: "turkish_coffee.jpg",
     special: true,
     tag: "Intense",
+    isFavorite: false,
   },
   {
     id: 19,
@@ -192,6 +210,7 @@ export const coffeeMenu = [
     photo: "vietnamese_iced_coffee.jpg",
     special: true,
     tag: "Sweetened",
+    isFavorite: false,
   },
   {
     id: 20,
@@ -202,6 +221,7 @@ export const coffeeMenu = [
     photo: "flat_white.jpg",
     special: true,
     tag: "Rich",
+    isFavorite: false,
   },
 ];
 

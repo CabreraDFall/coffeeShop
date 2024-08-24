@@ -6,14 +6,16 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { theme } from "../theme";
 import { LinearGradient } from "expo-linear-gradient";
 import Entypo from "@expo/vector-icons/Entypo";
 import { Link } from "expo-router";
 
-const Card = ({ item }) => {
+const Card = ({ item, onFavoriteToggle }) => {
+  const [favoriteLike, setFavoriteLike] = useState(item.isFavorite);
+
   return (
     <LinearGradient
       colors={["rgba(255,255,255,0)", "rgba(255,255,255,0.1)"]}
@@ -22,13 +24,16 @@ const Card = ({ item }) => {
       style={styles.gradientBorder}
     >
       <View className="bg-[#222325] w-[150px] min-h-[150px] flex rounded-lg">
-        <View style={styles.favoriteIcon}>
+        <TouchableOpacity
+          style={styles.favoriteIcon}
+          onPress={() => onFavoriteToggle(item.id)}
+        >
           <AntDesign
             name="heart"
             size={theme.sizeIcons.medium}
-            color={theme.whiteBase}
+            color={favoriteLike ? theme.orangeBase : theme.whiteBase}
           />
-        </View>
+        </TouchableOpacity>
         <TouchableOpacity className="flex items-center">
           <Link href={"/item"}>
             <View>

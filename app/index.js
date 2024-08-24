@@ -6,17 +6,34 @@ import SearchBar from "../compontents/SearchBar";
 import TagCategory from "../compontents/TagCategory";
 import CardsGrid from "../compontents/CardsGrid";
 import { coffeeMenu, person } from "../api/fakeData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { fetchCoffeeMenu } from "../services/coffeeMenu";
 
 const categories = ["All", ...new Set(coffeeMenu.map((item) => item.category))];
 
 export default function index() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  useEffect(() => {
+    const getCoffeeMenu = async () => {
+      try {
+        const menu = await fetchCoffeeMenu();
+        console.log("Menú de café:", menu);
+      } catch (error) {
+        console.error("No se pudo obtener el menú de café:", error);
+      }
+    };
+
+    getCoffeeMenu();
+  }, []);
+
+  console.log(fetchCoffeeMenu);
+
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredData, setFilteredData] = useState(coffeeMenu || []); // Asegúrate de que coffeeMenu tenga un valor inicial
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    if (category === "all") {
+    if (category === "All") {
       setFilteredData(coffeeMenu); // Muestra todos los elementos
     } else {
       setFilteredData(coffeeMenu.filter((item) => item.category === category)); // Filtra por categoría
@@ -45,7 +62,7 @@ export default function index() {
               />
             </View>
             <View>
-              <CardsGrid data={filteredData} paddingBottom={350} />
+              <CardsGrid data={filteredData} paddingBottom={375} />
             </View>
           </View>
         }

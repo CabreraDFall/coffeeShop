@@ -4,17 +4,21 @@
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
+    "server": "json-server -p5001 --watch db.json",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
   "dependencies": {
+    "axios": "^1.7.5",
+    "cors": "^2.8.5",
     "expo": "^51.0.31",
     "expo-constants": "~16.0.2",
     "expo-linear-gradient": "~13.0.2",
     "expo-linking": "~6.3.1",
     "expo-router": "~3.5.23",
     "expo-status-bar": "~1.12.1",
+    "json-server": "^1.0.0-beta.2",
     "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-native": "0.74.5",
