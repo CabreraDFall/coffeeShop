@@ -9,7 +9,7 @@
       "photo": "espresso.jpg",
       "special": false,
       "tag": "Strong",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "2",
@@ -20,7 +20,7 @@
       "photo": "cappuccino.jpg",
       "special": true,
       "tag": "Creamy",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "3",
@@ -31,7 +31,7 @@
       "photo": "latte.jpg",
       "special": false,
       "tag": "Smooth",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "4",
@@ -53,7 +53,7 @@
       "photo": "macchiato.jpg",
       "special": false,
       "tag": "Bold",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "6",
@@ -64,7 +64,7 @@
       "photo": "flat_white.jpg",
       "special": true,
       "tag": "Velvety",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "7",
@@ -75,7 +75,7 @@
       "photo": "americano.jpg",
       "special": false,
       "tag": "Mild",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "8",
@@ -86,7 +86,7 @@
       "photo": "affogato.jpg",
       "special": true,
       "tag": "Indulgent",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "9",
@@ -97,7 +97,7 @@
       "photo": "cold_brew.jpg",
       "special": false,
       "tag": "Refreshing",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "10",
@@ -185,7 +185,7 @@
       "photo": "cortado.jpg",
       "special": false,
       "tag": "Balanced",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "18",

@@ -1,49 +1,78 @@
 import { View, Text } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import Layout from "../compontents/Layout";
 import { StatusBar } from "expo-status-bar";
+// Corrige la ruta de importación si es necesario
+import TagCategory from "../compontents/TagCategory"; // Corrige la ruta de importación si es necesario
+import { fetchCoffeeMenu } from "../services/coffeeMenu";
+import Layout from "../compontents/Layout";
 import ShoppingIconWithBadge from "../compontents/ShoppingIcon";
 import CardsGrid from "../compontents/CardsGrid";
-import TagCategory from "../compontents/TagCategory";
-import { coffeeMenu } from "../api/fakeData";
-
-const categories = ["All", ...new Set(coffeeMenu.map((item) => item.category))];
 
 const Favorite = () => {
+  const [coffeeMenu, setCoffeeMenu] = useState([]);
+  const [categories, setCategories] = useState(["All"]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [filteredData, setFilteredData] = useState(coffeeMenu || []); // Asegúrate de que coffeeMenu tenga un valor inicial
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    const getCoffeeMenu = async () => {
+      try {
+        const menu = await fetchCoffeeMenu();
+        setCoffeeMenu(menu);
+        const favoriteMenu = menu.filter((item) => item.isFavorite);
+        setCategories([
+          "All",
+          ...new Set(favoriteMenu.map((item) => item.category)),
+        ]);
+        setFilteredData(favoriteMenu);
+      } catch (error) {
+        console.error("No se pudo obtener el menú de café:", error);
+      }
+    };
+
+    getCoffeeMenu();
+  }, []);
+
+  useEffect(() => {
+    const filtered =
+      selectedCategory === "All"
+        ? coffeeMenu.filter((item) => item.isFavorite)
+        : coffeeMenu.filter(
+            (item) => item.isFavorite && item.category === selectedCategory
+          );
+    setFilteredData(filtered);
+  }, [selectedCategory, coffeeMenu]);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    if (category === "All") {
-      setFilteredData(coffeeMenu); // Muestra todos los elementos
-    } else {
-      setFilteredData(coffeeMenu.filter((item) => item.category === category)); // Filtra por categoría
-    }
   };
+
   return (
-    <>
-      <Layout
-        children={
-          <View className="px-5 mt-8">
-            <View className="flex-row justify-between align-middle py-2">
-              <Text className="text-white text-lg font-medium">
-                Favorite Coffee
-              </Text>
-              <ShoppingIconWithBadge />
-            </View>
-            <View className="pt-2">
-              <TagCategory
-                data={categories}
-                onCategoryChange={handleCategoryChange}
-              />
-            </View>
-            <CardsGrid paddingBottom={150} />
-          </View>
-        }
-      />
-    </>
+    <Layout>
+      <View style={{ paddingHorizontal: 20, marginTop: 32 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingVertical: 8,
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 18, fontWeight: "500" }}>
+            Favorite Coffee
+          </Text>
+          <ShoppingIconWithBadge />
+        </View>
+        <View style={{ paddingTop: 8 }}>
+          <TagCategory
+            data={categories}
+            onCategoryChange={handleCategoryChange}
+          />
+        </View>
+        <CardsGrid data={filteredData} paddingBottom={375} />
+      </View>
+    </Layout>
   );
 };
 

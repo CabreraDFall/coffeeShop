@@ -25,9 +25,9 @@ const Order = () => {
               </Text>
               <ShoppingIconWithBadge />
             </View>
-            <View className="pt-2">
+            {/* <View className="pt-2">
               <TagCategory data={TagOrderItem} />
-            </View>
+            </View> */}
 
             <OrderGrid paddingBottom={150} />
           </View>
