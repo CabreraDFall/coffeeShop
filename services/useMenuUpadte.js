@@ -7,6 +7,7 @@ const useMenuUpdate = (data) => {
     setMenu(data);
   }, [data]);
 
+  //console.log(data);
   const handleFavoriteToggle = (id) => {
     setMenu((prevMenu) => {
       const updatedMenu = prevMenu.map((item) =>

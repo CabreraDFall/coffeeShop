@@ -9,7 +9,7 @@
       "photo": "espresso.jpg",
       "special": false,
       "tag": "Strong",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "2",
@@ -20,7 +20,7 @@
       "photo": "cappuccino.jpg",
       "special": true,
       "tag": "Creamy",
-      "isFavorite": true
+      "isFavorite": false
     },
     {
       "id": "3",
@@ -86,7 +86,7 @@
       "photo": "affogato.jpg",
       "special": true,
       "tag": "Indulgent",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "9",
@@ -185,7 +185,7 @@
       "photo": "cortado.jpg",
       "special": false,
       "tag": "Balanced",
-      "isFavorite": false
+      "isFavorite": true
     },
     {
       "id": "18",
